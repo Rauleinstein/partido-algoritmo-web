@@ -50,19 +50,31 @@ a { color: var(--azul); }
 
 .estado { display: block; margin-top: 1.25rem; font-size: .85rem; color: var(--suave); }
 
-section { padding: 3.5rem 0; border-top: 1px solid #e9e1d6; }
+section { padding: 3.5rem 0; }
+#como { text-align: center; }
 
-.pasos { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); padding: 0; margin: 0; list-style: none; counter-reset: paso; }
-.pasos li { background: #fff; border-radius: 12px; padding: 1.5rem; border-top: 4px solid var(--oro); counter-increment: paso; }
-.pasos li::before { content: counter(paso); display: block; font-size: 2rem; font-weight: 700; color: var(--oro); line-height: 1; }
-.pasos h3 { margin: .5rem 0; font-size: 1.2rem; }
-.pasos p { margin: 0; color: var(--suave); }
+.pasos { display: grid; gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); padding: 0; margin: 0; list-style: none; counter-reset: paso; text-align: center; }
+.pasos li { position: relative; counter-increment: paso; }
+.icono {
+  width: 7.5rem; height: 7.5rem; padding: 1.15rem; border-radius: 50%;
+  background: #fff; box-shadow: 0 10px 30px rgb(11 44 90 / .09);
+}
+/* Línea punteada que une los pasos (solo cuando van en fila) */
+@media (min-width: 52rem) {
+  .pasos li:not(:last-child)::after {
+    content: ""; position: absolute; top: 3.75rem; left: calc(50% + 4.5rem); right: calc(-50% + 3.25rem);
+    border-top: 3px dotted var(--oro);
+  }
+}
+.pasos h3 { margin: 1.25rem 0 .5rem; font-size: 1.25rem; }
+.pasos h3::before { content: counter(paso) ". "; color: var(--oro); }
+.pasos p { margin: 0 auto; max-width: 18rem; color: var(--suave); }
 
-.nota { margin-top: 1.75rem; font-weight: 700; color: var(--azul); }
+.nota { margin: 3rem auto 0; max-width: 34rem; text-align: center; font-weight: 700; color: var(--azul); }
 
 .porque p { max-width: 42rem; font-size: 1.15rem; }
 
-footer { padding: 2.5rem 1.25rem 3rem; border-top: 1px solid #e9e1d6; font-size: .9rem; color: var(--suave); text-align: center; }
+footer { padding: 2.5rem 1.25rem 3rem; font-size: .9rem; color: var(--suave); text-align: center; }
 footer p { margin: .35rem 0; }
 
 /* Página legal */
