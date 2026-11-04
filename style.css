@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(fonts/montserrat-latin.woff2) format("woff2");
+}
+
+:root {
+  --crema: #fcf8f3;
+  --azul: #0b2c5a;
+  --rojo: #a3162a;
+  --oro: #c9a227;
+  --texto: #1d2a3d;
+  --suave: #5a6577;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--crema);
+  color: var(--texto);
+  font: 500 1.0625rem/1.65 "Montserrat", system-ui, sans-serif;
+}
+
+main, footer { max-width: 60rem; margin: 0 auto; padding: 0 1.25rem; }
+
+h1, h2, h3 { color: var(--azul); line-height: 1.2; font-weight: 700; }
+h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin: 0 0 1.5rem; }
+
+a { color: var(--azul); }
+
+/* Filete tricolor del logo */
+.filete {
+  width: 9rem; height: 4px; margin: 1.5rem auto;
+  background: linear-gradient(90deg, var(--rojo) 0 40%, transparent 40% 45%, var(--oro) 45% 55%, transparent 55% 60%, var(--rojo) 60%);
+}
+
+.hero { text-align: center; padding: 3rem 0 4rem; }
+.hero img { width: min(260px, 65vw); height: auto; }
+.hero h1 { font-size: clamp(1.75rem, 5.5vw, 3rem); margin: 1rem 0 .75rem; }
+.hero p { max-width: 38rem; margin: 0 auto 2rem; color: var(--suave); }
+
+.boton {
+  display: inline-block; padding: .9rem 2rem; border-radius: 999px;
+  background: var(--azul); color: #fff; font-weight: 700; text-decoration: none;
+  transition: background .2s;
+}
+.boton:hover, .boton:focus-visible { background: var(--rojo); }
+
+.estado { display: block; margin-top: 1.25rem; font-size: .85rem; color: var(--suave); }
+
+section { padding: 3.5rem 0; border-top: 1px solid #e9e1d6; }
+
+.pasos { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); padding: 0; margin: 0; list-style: none; counter-reset: paso; }
+.pasos li { background: #fff; border-radius: 12px; padding: 1.5rem; border-top: 4px solid var(--oro); counter-increment: paso; }
+.pasos li::before { content: counter(paso); display: block; font-size: 2rem; font-weight: 700; color: var(--oro); line-height: 1; }
+.pasos h3 { margin: .5rem 0; font-size: 1.2rem; }
+.pasos p { margin: 0; color: var(--suave); }
+
+.nota { margin-top: 1.75rem; font-weight: 700; color: var(--azul); }
+
+.porque p { max-width: 42rem; font-size: 1.15rem; }
+
+footer { padding: 2.5rem 1.25rem 3rem; border-top: 1px solid #e9e1d6; font-size: .9rem; color: var(--suave); text-align: center; }
+footer p { margin: .35rem 0; }
+
+/* Página legal */
+.legal { max-width: 44rem; padding: 2.5rem 1.25rem 3rem; }
+.legal h1 { font-size: 1.9rem; }
+.legal h2 { font-size: 1.25rem; margin: 2rem 0 .5rem; }
